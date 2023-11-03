@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMX Live Chat / WebSocket Demo</title>
+  </head>
+
+  <body>
+    <div>
+      <h1 hx-get="/hello" hx-swap="innerHTML" hx-trigger="load"></h1>
+    </div>
+    <div>
+      <div hx-ws="connect:/chatroom">
+        <div id="chat_room"></div>
+        <form hx-ws="send:submit">
+          <input name="chat_message" placeholder="hello HTMX!" />
+          <input type="submit" value="send" />
+        </form>
+      </div>
+    </div>
+    <script src="https://unpkg.com/htmx.org"></script>
+  </body>
+</html>
